@@ -1,0 +1,217 @@
+/* Style général */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f9f9;
+    color: #333; /* Couleur du texte de base (gris foncé) */
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #5bb1a3; /* Couleur turquoise */
+    padding: 20px 0;
+    color: #fff; /* Couleur du texte en blanc */
+    text-align: center;
+}
+
+header .logo {
+    font-size: 28px; /* Augmenté pour plus de visibilité */
+    font-weight: 700; /* Rendu plus gras pour être bien lisible */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-inline-end: 20px;
+}
+
+nav ul li a {
+    color: #fff; /* Texte des liens en blanc */
+    text-decoration: none;
+    font-weight: 600; /* Plus gras pour améliorer la visibilité */
+    font-size: 18px; /* Taille du texte légèrement augmentée */
+}
+
+nav ul li a:hover {
+    text-decoration: underline; /* Ajout d'un soulignement lors du survol */
+}
+
+/* Section Hero */
+.hero {
+    background: rgba(0, 0, 0, 0.5) url('assets/images/diabette.jpg') no-repeat center center;
+    color: #fff; /* Le texte reste blanc */
+    padding: 100px 0; /* Espace augmenté pour aérer */
+    text-align: center;
+    background-blend-mode: darken; /* Sombre l'image pour un meilleur contraste */
+}
+
+.hero h2 {
+    font-size: 40px; /* Taille augmentée pour meilleure lisibilité */
+    margin-block-end: 20px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Ombre pour renforcer la lisibilité */
+}
+
+.hero p {
+    font-size: 20px;
+    margin-block-end: 30px;
+    max-inline-size: 600px;
+    margin-inline: auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Ajout d'ombre légère pour le texte */
+}
+
+.hero .btn {
+    background-color: #fff;
+    color: #5bb1a3;
+    padding: 15px 30px; /* Agrandi pour rendre plus attractif */
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    font-size: 18px; /* Taille du texte du bouton */
+}
+
+.hero .btn:hover {
+    background-color: #ddd;
+}
+
+/* Section Features */
+.features {
+    padding: 60px 0;
+    background-color: #f4f9f9;
+    text-align: center;
+}
+
+.features h3 {
+    font-size: 32px; /* Augmentée pour plus d'impact */
+    margin-block-end: 40px;
+    font-weight: 700;
+    color: #333;
+}
+
+.features-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    background-color: #fff;
+    padding: 30px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    inline-size: 30%;
+    min-inline-size: 250px;
+}
+
+.feature-item h4 {
+    font-size: 24px; /* Augmentée pour plus de lisibilité */
+    margin-block-end: 10px;
+    font-weight: 600;
+    color: #5bb1a3; /* Accentuer avec la couleur principale */
+}
+
+.feature-item p {
+    color: #555; /* Couleur du texte légèrement plus foncée pour le contraste */
+    font-size: 16px;
+}
+
+/* Footer */
+footer {
+    background-color: #5bb1a3;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+
+footer p {
+    margin: 0;
+    font-size: 16px;
+}
+
+
+/* Styles pour la page de connexion */
+.login-container h1{
+    max-width: 400px;
+    margin: 100px auto; /* Centrer verticalement */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #5bb1a3; /* Couleur du titre */
+}
+
+.login-container select,
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #5bb1a3; /* Couleur de fond du bouton */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-container button:hover {
+    background-color: #4da594; /* Couleur du bouton au survol */
+}
+
+/* Styles pour la page de connexion */
+body {
+    display: flex;
+    flex-direction: column; /* Aligner verticalement */
+    justify-content: center; /* Centrer verticalement */
+    align-items: center; /* Centrer horizontalement */
+    block-size: 100vh; /* Prendre toute la hauteur de la fenêtre */
+    background-color: #f4f9f9; /* Couleur de fond par défaut */
+}
+
+/* Ajout d'une image de fond pour la page de connexion */
+.login-background {
+    position: absolute; /* Positionner l'image en arrière-plan */
+    top: 0;
+    left: 0;
+    width: 100%; /* Prendre toute la largeur */
+    height: 100%; /* Prendre toute la hauteur */
+    background: url('assets/images/pitch.jpg') no-repeat center center; /* Remplace 'ton_image.jpg' par le nom de ton fichier */
+    background-size: cover; /* Couvrir tout l'espace */
+    z-index: -1; /* Placer l'image derrière les autres éléments */
+}
+
+.login-container {
+    max-inline-size: 400px; /* Largeur maximale du formulaire */
+    inline-size: 100%; /* Prendre toute la largeur disponible */
+    margin: auto; /* Centrer horizontalement */
+    padding: 20px; /* Espacement interne */
+    background-color: rgba(255, 255, 255, 0.8); /* Fond du formulaire avec transparence */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre */
+}

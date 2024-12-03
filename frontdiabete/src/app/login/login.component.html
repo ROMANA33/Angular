@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion - Application Médicale</title>
+  <link rel="stylesheet" href="Code.css">
+  <script>
+    // Fonction pour gérer la soumission du formulaire
+    async function handleSubmit(event) {
+      event.preventDefault(); // Empêche le rechargement de la page
+      const formData = new FormData(event.target);
+      const data = Object.fromEntries(formData.entries());
+
+      // Envoi de la requête d'inscription
+      const response = await fetch('http://localhost:8000/api/signup', { // Remplace par l'URL de ton endpoint
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        // Si l'inscription est réussie, redirige vers le tableau de bord
+        const role = data.role; // Récupère le rôle de l'utilisateur
+        if (role === 'medecin') {
+          window.location.href = 'dashboard_medecin.html'; // Remplace par le chemin vers le tableau de bord médecin
+        } else if (role === 'patient') {
+          window.location.href = 'dashboard_patient.html'; // Remplace par le chemin vers le tableau de bord patient
+        } else if (role === 'admin') {
+          window.location.href = 'dashboard_admin.html'; // Remplace par le chemin vers le tableau de bord admin
+        }
+      } else {
+        // Gère les erreurs ici (par exemple, afficher un message d'erreur)
+        const errorData = await response.json(); // Tente de récupérer les données d'erreur
+        alert('Erreur lors de l\'inscription : ' + errorData.message); // Affiche le message d'erreur
+      }
+    }
+  </script>
+</head>
+<body>
+<div class="login-container">
+  <h2>Inscription</h2>
+  <form onsubmit="handleSubmit(event)">
+    <div class="form-group">
+      <label for="role">Sélectionnez votre rôle</label>
+      <select id="role" name="role" required>
+        <option value="medecin">Médecin</option>
+        <option value="patient">Patient</option>
+        <option value="admin">Administrateur</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="username">Nom d'utilisateur</label>
+      <input type="text" id="username" name="username" required>
+    </div>
+    <div class="form-group">
+      <label for="username">prenom</label>
+      <input type="text" id="username" name="username" required>
+    </div>
+    <div class="form-group">
+      <label for="username">nom</label>
+      <input type="text" id="username" name="username" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Mot de passe</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <button type="submit">S'inscrire</button>
+  </form>
+</div>
+<div class="login-background"></div> <!-- Ajout du background -->
+</body>
+</html>

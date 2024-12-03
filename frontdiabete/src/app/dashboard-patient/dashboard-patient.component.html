@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau de Bord Patient</title>
+  <style>
+    /* Style général */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #e1f7f2; /* Fond clair pour l'ensemble */
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Sidebar pour la navigation */
+    .sidebar {
+      width: 250px;
+      background-color: #4CAF50; /* Vert nature herbe */
+      color: #fff;
+      padding-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .sidebar h2 {
+      margin: 0;
+      font-size: 1.5em;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .sidebar nav a {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1em;
+      transition: background 0.3s;
+      text-align: center;
+    }
+
+    .sidebar nav a:hover {
+      background-color: #388E3C; /* Vert plus foncé */
+    }
+
+    /* Contenu principal */
+    .main-content {
+      flex-grow: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      background-color: #f9f9f9; /* Fond clair pour le contenu principal */
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .header h1 {
+      margin: 0;
+      color: #333;
+      font-size: 1.5em;
+    }
+
+    /* Section de contenu pour chaque fonctionnalité */
+    .content-section {
+      background-color: #fff;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: none; /* Cache les sections par défaut */
+    }
+
+    .active {
+      display: block; /* Affiche uniquement la section active */
+    }
+
+    /* Boutons de fonctionnalité */
+    .function-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .function-buttons button {
+      padding: 15px;
+      font-size: 1em;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: #fff;
+      background-color: #4CAF50; /* Vert nature herbe */
+      transition: background-color 0.3s;
+      flex: 1 1 150px;
+    }
+
+    .function-buttons button:hover {
+      background-color: #388E3C; /* Vert plus foncé */
+    }
+
+    /* Formulaire de connexion et conditions */
+    .login-container,
+    .conditions-container {
+      max-width: 400px;
+      margin: auto;
+      padding: 30px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .login-container button,
+    .conditions-container button {
+      width: 100%;
+      padding: 15px;
+      background-color: #42fcff;
+      color: #e7b88c;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .login-container button:hover,
+    .conditions-container button:hover {
+      background-color: #e67327;
+    }
+  </style>
+</head>
+<body>
+<div id="loginPage" class="login-container" style="display: none;">
+  <h1>Connexion Patient</h1>
+  <input type="text" placeholder="Nom d'utilisateur" id="username">
+  <input type="password" placeholder="Mot de passe" id="password">
+  <button onclick="login()">Se connecter</button>
+</div>
+
+<div id="conditionsPage" class="conditions-container" style="display: none;">
+  <h2>Conditions d'Utilisation</h2>
+  <p>Veuillez accepter les conditions d'utilisation pour continuer à utiliser l'application.</p>
+  <button onclick="acceptConditions()">Accepter</button>
+  <button onclick="refuseConditions()">Refuser</button>
+</div>
+<div class="sidebar">
+  <h2>Tableau de Bord</h2>
+  <nav>
+    <a href="#" onclick="showSection('symptomes')">Entrer Symptômes</a>
+    <a href="#" onclick="showSection('recommandations')">Recommandations</a>
+    <a href="#" onclick="showSection('communication')">Communiquer avec Médecin</a>
+    <a href="#" onclick="showSection('rendezvous')">Prendre Rendez-vous</a>
+    <a href="#" onclick="showSection('questions')">Poser des Questions</a>
+    <a href="#" onclick="showSection('dossiers')">Dossiers Médicaux</a>
+    <a href="#" onclick="showSection('resultats')">Résultats Médicaux</a>
+    <a href="#" onclick="showSection('historiques')">Historique</a>
+  </nav>
+</div>
+
+<div class="main-content">
+  <div class="header">
+    <h1>Bienvenue, Patient</h1>
+    <button onclick="logout()">Déconnexion</button>
+  </div>
+
+  <div class="content-section" id="symptomes">
+    <h2>Entrer Symptômes</h2>
+    <p>Décrivez vos symptômes pour obtenir des recommandations.</p>
+    <div class="function-buttons">
+      <button>Entrer Symptômes</button>
+    </div>
+  </div>
+
+  <div class="content-section" id="recommandations">
+    <h2>Recommandations</h2>
+    <p>Recevez des recommandations basées sur vos symptômes.</p>
+    <div class="function-buttons">
+      <button>Voir Recommandations</button>
+    </div>
+  </div>
+
+  <div class="content-section" id="communication">
+    <h2>Communiquer avec le Médecin</h2>
+    <p>Discutez de vos résultats ou posez des questions à votre médecin.</p>
+    <div class="function-buttons">
+      <button>Envoyer un Message</button>
+    </div>
+  </div>
+
+  <div class="content-section" id="rendezvous">
+    <h2>Prendre Rendez-vous</h2>
+    <p>Planifiez un rendez-vous avec un médecin.</p>
+    <div class="function-buttons">
+      <button>Prendre Rendez-vous</button>
+    </div>
+  </div>
+
+  <div class="content-section" id="questions">
+    <h2>Poser des Questions</h2>
+    <p>Posez des questions de santé à votre médecin.</p>
+    <div class="function-buttons">
+      <button>Poser Question</button>
+    </div>
+  </div>
+
+  <div class="content-section" id="dossiers">
+    <h2>Dossiers Médicaux</h2>
+    <p>Consultez votre dossier médical.</p>
+    <div class="function-buttons">
+      <button>Accéder Dossiers</button>
+    </div>
+  </div>
+
+  <div class="content-section" id="resultats">
+    <h2>Résultats Médicaux</h2>
+    <p>Recevez et consultez les résultats de vos tests médicaux.</p>
+    <div class="function-buttons">
+      <button>Voir Résultats</button>
+    </div>
+  </div>
+
+  <div class="content-section" id="historiques">
+    <h2>Historique</h2>
+    <p>Consultez votre historique de santé et de consultations.</p>
+    <div class="function-buttons">
+      <button>Consulter Historique</button>
+    </div>
+  </div>
+</div>
+<script>
+  // Fonction pour afficher uniquement la section cliquée
+  function showSection(sectionId) {
+    // Cacher toutes les sections
+    var sections = document.querySelectorAll('.content-section');
+    sections.forEach(function(section) {
+      section.classList.remove('active');
+    });
+
+    // Afficher la section sélectionnée
+    var selectedSection = document.getElementById(sectionId);
+    selectedSection.classList.add('active');
+  }
+
+  // Fonction de déconnexion
+  function logout() {
+    alert("Déconnexion réussie");
+    window.location.reload();
+  }
+
+  // Fonction de connexion
+  function login() {
+    alert("Connexion réussie");
+    document.getElementById("loginPage").style.display = "none";
+    document.getElementById("conditionsPage").style.display = "block";
+  }
+
+  function acceptConditions() {
+    document.getElementById("conditionsPage").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
+  }
+
+  function refuseConditions() {
+    alert("Vous devez accepter les conditions pour continuer.");
+  }
+</script>
+
+</body>
+</html>

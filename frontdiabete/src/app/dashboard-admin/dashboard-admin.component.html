@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau de Bord Administrateur</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e4f6df;
+      margin: 0;
+      padding: 0;
+    }
+
+    .login-container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #0ea416; /* Caramel intense */
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      color: white;
+    }
+
+    .login-container h1 {
+      margin-bottom: 20px;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .login-container button {
+      background-color: #29bb38; /* Couleur caramel */
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    .login-container button:hover {
+      background-color: #37b129; /* Une nuance plus sombre */
+    }
+
+    .dashboard {
+      display: none;
+      padding: 20px;
+    }
+
+    .dashboard h2 {
+      color: #2e8c29; /* Couleur caramel */
+    }
+
+    .dashboard button {
+      background-color: #2ac234; /* Couleur caramel */
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px 0;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    .dashboard button:hover {
+      background-color: #60c132; /* Une nuance plus sombre */
+    }
+
+    /* Style de la barre latérale */
+    .sidebar {
+      width: 250px;
+      height: 100%;
+      background-color: #9cea9c; /* Couleur de fond plus claire */
+      position: fixed;
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar h2 {
+      color: #20c647; /* Couleur caramel */
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .sidebar a {
+      color: #1bae1b; /* Couleur caramel */
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+    }
+
+    .sidebar a:hover {
+      background-color: #9ad596; /* Une nuance plus claire au survol */
+    }
+
+    .main-content {
+      margin-left: 260px; /* Pour éviter que le contenu soit sous la barre latérale */
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-container" id="loginPage">
+  <h1>Connexion Administrateur</h1>
+  <input type="text" placeholder="Nom d'utilisateur" required>
+  <input type="password" placeholder="Mot de passe" required>
+  <button onclick="login()">Se connecter</button>
+</div>
+
+<div class="dashboard" id="dashboard">
+  <div class="sidebar">
+    <h2>Gestion des Utilisateurs</h2>
+    <button onclick="manageUsers()">Ajouter un Utilisateur</button>
+    <button onclick="updateUser()">Modifier un Utilisateur</button>
+    <button onclick="deleteUser()">Supprimer un Utilisateur</button>
+    <button onclick="viewUsers()">Voir la Liste des Utilisateurs</button>
+    <h2>Mise à Jour</h2>
+    <button onclick="updateData()">Effectuer une Mise à Jour</button>
+  </div>
+
+  <div class="main-content">
+    <center><h2>Bienvenue, cher Administrateur !</h2></center>
+    <center><p>Vous pouvez gérer les utilisateurs et effectuer des mises à jour à partir du menu latéral.</p></center>
+  </div>
+</div>
+
+<script>
+  function login() {
+    // Logique de connexion (à remplir)
+    document.getElementById("loginPage").style.display = "none";
+    document.getElementById("dashboard").style.display = "block";
+  }
+
+  function manageUsers() {
+    alert('Ajouter un Utilisateur');
+  }
+
+  function updateUser() {
+    alert('Modifier un Utilisateur');
+  }
+
+  function deleteUser() {
+    alert('Supprimer un Utilisateur');
+  }
+
+  function viewUsers() {
+    alert('Voir la Liste des Utilisateurs');
+  }
+
+  function updateData() {
+    alert('Effectuer une Mise à Jour');
+  }
+</script>
+
+</body>
+</html>

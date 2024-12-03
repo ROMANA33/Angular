@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard du Médecin</title>
+  <style>
+    /* Réinitialisation des marges et paddings */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Style général */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    /* Barre de navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #4CAF50;
+      padding: 15px;
+      color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 15px;
+    }
+
+    .navbar a:hover {
+      text-decoration: underline;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    /* Conteneur principal */
+    .dashboard-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 80px; /* Espace pour la barre de navigation */
+      width: 100%;
+    }
+
+    /* Titre principal */
+    h1 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    /* Grille de fonctionnalités */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      width: 90%;
+      max-width: 1200px;
+      margin-top: 20px;
+    }
+
+    /* Carte de fonctionnalité */
+    .feature-card {
+      background-color: #ecf0f1;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, background-color 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      background-color: #bdc3c7;
+    }
+
+    .feature-card h2 {
+      font-size: 1.4rem;
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+
+    .feature-card p {
+      font-size: 1rem;
+      color: #7f8c8d;
+      margin-bottom: 20px;
+    }
+
+    .feature-card button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .feature-card button:hover {
+      background-color: #388e3c;
+    }
+
+    /* Icônes dans les cartes */
+    .feature-card i {
+      font-size: 2rem;
+      color: #4CAF50;
+      margin-bottom: 15px;
+    }
+  </style>
+  <!-- Ajouter des icônes avec Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Barre de navigation supérieure -->
+<header class="navbar">
+  <div class="logo">Tableau de Bord</div>
+  <nav>
+    <a href="#">Accueil</a>
+    <a href="#">Déconnexion</a>
+  </nav>
+</header>
+
+<!-- Conteneur principal du tableau de bord -->
+<div class="dashboard-container">
+  <!-- Titre principal du tableau de bord -->
+  <h1>Bienvenue sur votre Dashboard Médecin</h1>
+
+  <!-- Grille des fonctionnalités -->
+  <div class="features-grid">
+    <!-- Fonctionnalité : Dossiers Médicaux -->
+    <div class="feature-card">
+      <i class="fas fa-file-medical-alt"></i>
+      <h2>Dossiers Médicaux</h2>
+      <p>Consulter les dossiers de vos patients pour un suivi personnalisé.</p>
+      <button>Voir les Dossiers</button>
+    </div>
+
+    <!-- Fonctionnalité : Résultats des Patients -->
+    <div class="feature-card">
+      <i class="fas fa-vials"></i>
+      <h2>Résultats des Tests</h2>
+      <p>Recevez et vérifiez les derniers résultats des tests médicaux.</p>
+      <button>Consulter les Résultats</button>
+    </div>
+
+    <!-- Fonctionnalité : Planification de Rendez-vous -->
+    <div class="feature-card">
+      <i class="fas fa-calendar-plus"></i>
+      <h2>Proposer des Rendez-vous</h2>
+      <p>Planifiez et proposez des rendez-vous pour vos patients.</p>
+      <button>Planifier un Rendez-vous</button>
+    </div>
+
+    <!-- Fonctionnalité : Vérification des Prescriptions -->
+    <div class="feature-card">
+      <i class="fas fa-prescription-bottle-alt"></i>
+      <h2>Prescriptions Médicales</h2>
+      <p>Vérifiez les prescriptions et ajustez-les si nécessaire.</p>
+      <button>Voir les Prescriptions</button>
+    </div>
+
+    <!-- Fonctionnalité : Gestion des Notifications -->
+    <div class="feature-card">
+      <i class="fas fa-bell"></i>
+      <h2>Gérer les Notifications</h2>
+      <p>Recevez les questions des patients et fournissez des conseils personnalisés.</p>
+      <button>Voir les Notifications</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+

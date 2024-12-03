@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conditions d'Utilisation</title>
+  <style>
+    /* Style général pour une apparence nature */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #e1f7f2; /* Fond vert doux */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Conteneur pour les conditions d'utilisation */
+    .conditions-container {
+      width: 100%;
+      max-width: 400px;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .conditions-container h2 {
+      color: #4CAF50; /* Vert herbe */
+      margin-bottom: 20px;
+      font-size: 1.8em;
+    }
+
+    .conditions-container p {
+      color: #666;
+      margin-bottom: 20px;
+      font-size: 1em;
+      line-height: 1.6;
+    }
+
+    .conditions-container button {
+      width: 100%;
+      padding: 15px;
+      font-size: 1.1em;
+      color: #fff;
+      background-color: #4CAF50; /* Vert herbe */
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 10px;
+    }
+
+    .conditions-container button:hover {
+      background-color: #388E3C; /* Vert plus foncé */
+    }
+  </style>
+</head>
+<body>
+
+<!-- Page des conditions d'utilisation -->
+<div class="conditions-container" id="conditionsPage" style="display: none;">
+  <h2>
+    CONDITIONS D'UTILISATION DU DiabeteCare
+  </h2>
+
+  <p>
+    DiabeteCare est une application de suivi de la santé conçue pour aider les utilisateurs dans la gestion et le suivi de leur diabète.
+    Elle ne remplace pas une consultation médicale et ne doit pas être utilisée pour établir un diagnostic médical.
+  </p>
+
+  <p>
+    Responsabilité de l’Utilisateur : L'utilisateur est responsable des informations qu'il saisit dans l'application,
+    incluant ses données de santé, ses habitudes de vie et ses mesures de glucose sanguin. L'exactitude de ces informations est cruciale pour un suivi adéquat.
+  </p>
+
+  <p>
+    Confidentialité des Données : DiabeteCare s'engage à protéger les données personnelles de l'utilisateur.
+    Toutes les informations sont stockées de manière sécurisée et ne seront pas partagées avec des tiers sans le consentement explicite de l'utilisateur,
+    sauf si requis par la loi.
+  </p>
+
+  <button onclick="acceptConditions()">Accepter</button>
+  <button onclick="refuseConditions()">Refuser</button>
+</div>
+
+<script>
+  // Fonction pour accepter les conditions
+  function acceptConditions() {
+    alert("Conditions acceptées");
+    window.location.href = "dashboard_patient.html"; // Redirection vers le dashboard du patient
+  }
+
+  // Fonction pour refuser les conditions
+  function refuseConditions() {
+    alert("Vous devez accepter les conditions pour continuer.");
+  }
+</script>
+
+</body>
+</html>
